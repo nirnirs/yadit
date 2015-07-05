@@ -69,7 +69,7 @@ var adjustMyFrameHeight = function(id, fromIFrame) {
                                 <tr>\
                                 <td align="right" valign="top" width="263">\
                                 <div class="yadit_ad_notes">\
-                                <textarea onfocus="fieldDefaultText(this,\'Enter note here...\');" onblur="parent.yadit_add_note(\'../\',\'' + CatID + '\',\''+SubCatID+'\',\''+AdID+'\',this.value);fieldDefaultText(this,\'Enter note here...\'); " onkeyup="textLimit(this,70); document.getElementById(\'ad_notes\').scrollTop = document.getElementById(\'ad_notes\').scrollHeight;" id="ad_notes" cols="100%" rows="3" width="100%">' + yadit_get_note(SubCatID, AdID) + '</textarea>\
+                                <textarea onfocus="fieldDefaultText(this,\'Enter note here...\');" onblur="parent.yadit_add_note(\'../\',\'' + CatID + '\',\''+SubCatID+'\',\''+AdID+'\',this.value);fieldDefaultText(this,\'Enter note here...\'); " onkeyup="textLimit(this,1000); document.getElementById(\'ad_notes\').scrollTop = document.getElementById(\'ad_notes\').scrollHeight;" id="ad_notes" cols="100%" rows="3" width="100%">' + yadit_get_note(SubCatID, AdID) + '</textarea>\
                                 </div>\
                                 </td>\
                                 </tr>\
