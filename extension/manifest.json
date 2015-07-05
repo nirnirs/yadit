@@ -1,0 +1,25 @@
+{
+  "manifest_version": 2,
+
+  "name": "YadIt!",
+  "description": "This extension adds festures to Yad2 website",
+  "version": "0.1",
+
+  "content_scripts": [
+    {
+      "matches": ["http://www.yad2.co.il/*"],
+      "js": ["loader.js"]
+    }
+  ],
+
+  "icons": { "128": "icon128.png" },
+
+  "web_accessible_resources": [
+    "script/main.js"
+  ],
+
+  "permissions": [
+    "tabs",
+    "http://www.yad2.co.il/*"
+  ]
+}
