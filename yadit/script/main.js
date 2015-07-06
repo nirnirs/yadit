@@ -1,5 +1,6 @@
+var DEFAULT_NOTE_TEXT = "Enter text here...";
+
 function yadit_toggle_ad_note(CatID, SubCatID, RecordID, note, prefix) {
-    //debugger;
     if (prefix == null || prefix == undefined)
         prefix = '';
     var pos = $("#" + prefix + "yadit_ad_note_" + SubCatID + "_" + RecordID).children('.yadit_ad_note_icon').position();
@@ -30,7 +31,6 @@ function yadit_get_note(SubCatID, RecordID) {
 }
 
 function yadit_add_note(path, CatID, SubCatID, RecordID, note) {
-    //debugger;
     if (path == null || path == undefined)
         path = '';
     note = $.trim(note);
@@ -42,12 +42,10 @@ function yadit_add_note(path, CatID, SubCatID, RecordID, note) {
 
         $('#' + yadit_ad_note_id).html('<div class="yadit_ad_note_icon" onmouseover="yadit_toggle_ad_note(\'' + CatID + '\',\'' + SubCatID + '\',\'' + RecordID + '\',\'' + note + '\');" onmouseout="yadit_toggle_ad_note(\'' + CatID + '\',\'' + SubCatID + '\',\'' + RecordID + '\');">Y</div>');
 
-      //debugger;
       localStorage.setItem(yadit_ad_note_id, note);
     } 
     else 
     {
-      //debugger;
       localStorage.removeItem(yadit_ad_note_id);
       $("#yadit_ad_note_" + SubCatID + "_" + RecordID).html('');
       $("#yadit_ad_note_" + SubCatID + "_" + RecordID).html('');
@@ -65,11 +63,12 @@ var adjustMyFrameHeight = function(id, fromIFrame) {
   var SubCatID = adIdParts[2];
   var AdID = adIdParts[3];
 
+
   $('#'+id).contents().find('.innerDetails_table').prepend('\
                                 <tr>\
                                 <td align="right" valign="top" width="263">\
                                 <div class="yadit_ad_notes">\
-                                <textarea onfocus="fieldDefaultText(this,\'Enter note here...\');" onblur="parent.yadit_add_note(\'../\',\'' + CatID + '\',\''+SubCatID+'\',\''+AdID+'\',this.value);fieldDefaultText(this,\'Enter note here...\'); " onkeyup="textLimit(this,1000); document.getElementById(\'ad_notes\').scrollTop = document.getElementById(\'ad_notes\').scrollHeight;" id="ad_notes" cols="100%" rows="3" width="100%">' + yadit_get_note(SubCatID, AdID) + '</textarea>\
+                                <textarea onfocus="fieldDefaultText(this,\'' + DEFAULT_NOTE_TEXT + '\');" onblur="parent.yadit_add_note(\'../\',\'' + CatID + '\',\''+SubCatID+'\',\''+AdID+'\',this.value);fieldDefaultText(this,\'' + DEFAULT_NOTE_TEXT + '\'); " onkeyup="textLimit(this,1000); document.getElementById(\'ad_notes\').scrollTop = document.getElementById(\'ad_notes\').scrollHeight;" id="ad_notes" cols="100%" rows="3" width="100%">' + yadit_get_note(SubCatID, AdID) + '</textarea>\
                                 </div>\
                                 </td>\
                                 </tr>\
@@ -93,7 +92,6 @@ mainTables.each(function() { $(this).find('tr:first').prepend('\
 var mainTablesAdRows = mainTables.find('[id^=tr_Ad]');
 mainTablesAdRows.each(function() {
                               // parse id parts from tr id string ..
-                              //debugger;
                               var regex = /\w+_\w+_(\w+)_(\w+)_(\w+)/g;
                               var adIdParts = regex.exec($(this).attr('id'));
                               var CatID = adIdParts[1];
@@ -108,7 +106,6 @@ mainTablesAdRows.each(function() {
                               </td>\
                               <td>&nbsp;</td>\
                               ');
-                              //debugger;
                               yadit_add_note('/', CatID, SubCatID, AdID, yadit_get_note(SubCatID, AdID));
                               } );
 
