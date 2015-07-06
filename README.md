@@ -2,6 +2,7 @@
 Features:
 
 * Adding notes to an unlimited number of ads.
+* Adding notes with up to 1000 characters (instead of 70).
 
 Installation:
 
