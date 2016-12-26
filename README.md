@@ -23,5 +23,5 @@ Usage:
 3. In the results page you should see a column with a header of 'Y'.
 
 
-When opening an ad's details you should see a new text box appears at the top.
+When opening an ad's details you should see a new text box at the top.
 Any notes you add in that text box would appear when you hover over the 'Y' next to the ad's table row.
